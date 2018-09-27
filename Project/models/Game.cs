@@ -12,42 +12,43 @@ namespace CastleGrimtol.Project
     {
       Console.WriteLine("");
       string UserInput = Console.ReadLine();
-      if (Int32.TryParse(UserInput, out int choice))
+      switch (UserInput.ToLower())
       {
-        switch (choice)
-        {
-          case 1:
-            Go("North");
-            Go("East");
-            Go("South");
-            Go("West");
-            break;
-          case 2:
-            Look();
-            break;
-          case 3:
-            Inventory();
-            break;
-          case 4:
-            TakeItem("Key");
-            break;
-          case 5:
-            UseItem("Key");
-            break;
-          case 6:
-            Quit();
-            break;
-          case 7:
-            Help();
-            break;
-          case 8:
-            Reset();
-            break;
-
-        }
+        case "go north":
+          Go("north");
+          break;
+        case "go east":
+          Go("east");
+          break;
+        case "go south":
+          Go("south");
+          break;
+        case "go west":
+          Go("west");
+          break;
+        case "look":
+          Look();
+          break;
+        case "inventory":
+          Inventory();
+          break;
+        case "take item":
+          TakeItem("Key");
+          break;
+        case "use item":
+          UseItem("Key");
+          break;
+        case "quit":
+          Quit();
+          break;
+        case "help":
+          Help();
+          break;
+        case "reset":
+          Reset();
+          break;
       }
     }
-
     public void Setup()
     {
       Room Entry = new Room("");
