@@ -17,3 +17,5 @@ namespace CastleGrimtol.Project
     public Dictionary<string, IRoom> Exits { get; set; }
   }
 }
+
+//Write what happens when you walk into a wall.

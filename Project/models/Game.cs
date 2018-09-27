@@ -58,11 +58,15 @@ namespace CastleGrimtol.Project
       Room Casemate = new Room("");
       Room PlaceofArms = new Room("");
 
+      //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("East", Undercroft);
-      Undercroft.Items.Add(Key);
       Entry.Exits.Add("South", Aresenal);
+      // Aresenal is game over, no win.
+      Undercroft.Items.Add(Key);
+      Entry.Exits.Add("West", Entry);
       Entry.Exits.Add("East", Casemate);
-      Entry.Exits.Add("East", PlaceofArms);
+      Entry.Exits.Add("West", Undercroft);
+      Entry.Exits.Add("East", PlaceofArms); // YOU WIN!
     }
     public void StartGame()
     {
@@ -80,7 +84,7 @@ namespace CastleGrimtol.Project
     {
       for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
       {
-        Console.WriteLine($"You currently have one {CurrentPlayer.Inventory[i].Name} in inventory.");
+        Console.WriteLine($"You currently have one {CurrentPlayer.Inventory[i].Name} in your inventory.");
       }
       string choice = Console.ReadLine();
       GetUserInput();
@@ -89,7 +93,6 @@ namespace CastleGrimtol.Project
     {
       throw new NotImplementedException();
     }
-
     public void UseItem(string itemName)
     {
       throw new NotImplementedException();
@@ -98,17 +101,13 @@ namespace CastleGrimtol.Project
     {
       throw new NotImplementedException();
     }
-
     public void Reset()
     {
       throw new NotImplementedException();
     }
-
     public void Quit()
     {
       throw new NotImplementedException();
     }
-
-
   }
 }
