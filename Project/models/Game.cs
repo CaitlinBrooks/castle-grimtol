@@ -57,6 +57,12 @@ namespace CastleGrimtol.Project
       Item Key = new Item("");
       Room Casemate = new Room("");
       Room PlaceofArms = new Room("");
+
+      Entry.Exits.Add("East", Undercroft);
+      Undercroft.Items.Add(Key);
+      Entry.Exits.Add("South", Aresenal);
+      Entry.Exits.Add("East", Casemate);
+      Entry.Exits.Add("East", PlaceofArms);
     }
     public void StartGame()
     {
@@ -72,27 +78,37 @@ namespace CastleGrimtol.Project
     }
     public void Inventory()
     {
-
+      for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
+      {
+        Console.WriteLine($"You currently have one {CurrentPlayer.Inventory[i].Name} in inventory.");
+      }
+      string choice = Console.ReadLine();
+      GetUserInput();
     }
     public void TakeItem(string itemName)
     {
-
+      throw new NotImplementedException();
     }
+
     public void UseItem(string itemName)
     {
-
-    }
-    public void Quit()
-    {
-
+      throw new NotImplementedException();
     }
     public void Help()
     {
-
+      throw new NotImplementedException();
     }
+
     public void Reset()
     {
-
+      throw new NotImplementedException();
     }
+
+    public void Quit()
+    {
+      throw new NotImplementedException();
+    }
+
+
   }
 }
