@@ -5,8 +5,9 @@ namespace CastleGrimtol.Project
 {
   public class Game : IGame
   {
-    Room IGame.CurrentRoom { get; set; }
-    Player IGame.CurrentPlayer { get; set; }
+    public Room CurrentRoom { get; set; }
+    public Player CurrentPlayer { get; set; }
+    public bool playing { get; private set; }
 
     public void GetUserInput()
     {
@@ -47,6 +48,9 @@ namespace CastleGrimtol.Project
         case "reset":
           Reset();
           break;
+        default:
+          System.Console.WriteLine("I don't recognize that command, please try again.");
+          break;
       }
     }
     public void Setup()
@@ -82,7 +86,7 @@ namespace CastleGrimtol.Project
     }
     public void Inventory()
     {
-      for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
+      for (int i = 0; i < CurrentPlayer.Inventory.Count; i++) //IGame.CurrentPlayer?
       {
         Console.WriteLine($"You currently have one {CurrentPlayer.Inventory[i].Name} in your inventory.");
       }
@@ -91,21 +95,37 @@ namespace CastleGrimtol.Project
     }
     public void TakeItem(string itemName)
     {
-      throw new NotImplementedException();
+      // this.CurrentRoom = currentroom;
+      Item item = CurrentRoom.Items.Find(i => i.Name == itemName);
+      if (item != null)
+      {
+        {
+          CurrentRoom.Items.Remove(item);
+          CurrentPlayer.Inventory.Add(item);
+        }
+      }
     }
     public void UseItem(string itemName)
     {
-      throw new NotImplementedException();
+      Item item = CurrentRoom.Items.Find(i => i.Name == itemName);
+      if (item != null)
+      {
+        CurrentPlayer.Inventory.Remove(item);
+      }
     }
-    public void Help()
-    {
-      throw new NotImplementedException();
-    }
+
     public void Reset()
     {
       throw new NotImplementedException();
     }
+
     public void Quit()
+    {
+      Console.WriteLine("You lost the game...");
+      playing = false;
+    }
+
+    public void Help()
     {
       throw new NotImplementedException();
     }
