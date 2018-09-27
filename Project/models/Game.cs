@@ -15,6 +15,7 @@ namespace CastleGrimtol.Project
       string UserInput = Console.ReadLine();
       switch (UserInput.ToLower())
       {
+        // split into an array to shorten the amount of "go" commands.
         case "go north":
           Go("north");
           break;
@@ -76,6 +77,7 @@ namespace CastleGrimtol.Project
     {
       Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol. You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
       GetUserInput();
+
     }
     public void Go(string direction)
     {
@@ -96,7 +98,7 @@ namespace CastleGrimtol.Project
     }
     public void TakeItem(string itemName)
     {
-      // this.CurrentRoom = currentroom;
+
       Item item = CurrentRoom.Items.Find(i => i.Name == itemName);
       if (item != null)
       {
@@ -128,7 +130,16 @@ namespace CastleGrimtol.Project
 
     public void Help()
     {
-      throw new NotImplementedException();
+      Console.WriteLine(@"Possible Commands:
+                        Go [direction]
+                        Look
+                        Inventory
+                        Take Item
+                        Use Item
+                        Reset
+                        Quit
+                        Help
+                         ");
     }
   }
 }
