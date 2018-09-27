@@ -7,7 +7,7 @@ namespace CastleGrimtol
   {
     public static void Main(string[] args)
     {
-      Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol. Do you have what it takes to make it out alive?");
+      Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol. Do you have what it takes to survive?");
       Game game = new Game();
       game.StartGame();
     }

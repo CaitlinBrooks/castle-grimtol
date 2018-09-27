@@ -10,6 +10,7 @@ namespace CastleGrimtol.Project
 
     public void GetUserInput()
     {
+      Console.WriteLine("");
       string UserInput = Console.ReadLine();
       if (Int32.TryParse(UserInput, out int choice))
       {
@@ -42,6 +43,7 @@ namespace CastleGrimtol.Project
           case 8:
             Reset();
             break;
+
         }
       }
     }
