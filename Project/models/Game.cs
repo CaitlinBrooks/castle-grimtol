@@ -33,10 +33,10 @@ namespace CastleGrimtol.Project
           Inventory();
           break;
         case "take item":
-          TakeItem("Key");
+          TakeItem("key");
           break;
         case "use item":
-          UseItem("Key");
+          UseItem("key");
           break;
         case "quit":
           Quit();
