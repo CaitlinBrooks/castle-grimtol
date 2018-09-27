@@ -48,13 +48,12 @@ namespace CastleGrimtol.Project
 
     public void Setup()
     {
-      Room Entry = new Room("Text");
-      Room Aresenal = new Room("Text");
-      Room Undercroft = new Room("Text");
-      Item Key = new Item("Text");
-      Room Casemate = new Room("Text");
-      Room PlaceofArms = new Room("Text");
-
+      Room Entry = new Room("");
+      Room Aresenal = new Room("");
+      Room Undercroft = new Room("");
+      Item Key = new Item("");
+      Room Casemate = new Room("");
+      Room PlaceofArms = new Room("");
     }
     public void StartGame()
     {
