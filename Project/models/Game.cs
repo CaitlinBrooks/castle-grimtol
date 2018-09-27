@@ -45,7 +45,13 @@ namespace CastleGrimtol.Project
 
     public void Setup()
     {
-      throw new System.NotImplementedException();
+      Room Entry = new Room("Text");
+      Room Aresenal = new Room("Text");
+      Room Undercroft = new Room("Text");
+      Item Key = new Item("Text");
+      Room Casemate = new Room("Text");
+      Room PlaceofArms = new Room("Text");
+
     }
     public void StartGame()
     {

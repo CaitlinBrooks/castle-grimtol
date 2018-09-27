@@ -4,6 +4,13 @@ namespace CastleGrimtol.Project
 {
   public class Room : IRoom
   {
+    private string v;
+
+    public Room(string v)
+    {
+      this.v = v;
+    }
+
     public string Name { get; set; }
     public string Description { get; set; }
     public List<Item> Items { get; set; }
