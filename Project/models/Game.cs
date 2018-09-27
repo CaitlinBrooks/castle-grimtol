@@ -16,7 +16,10 @@ namespace CastleGrimtol.Project
         switch (choice)
         {
           case 1:
-            Go();
+            Go("North");
+            Go("East");
+            Go("South");
+            Go("West");
             break;
           case 2:
             Look();
@@ -25,10 +28,10 @@ namespace CastleGrimtol.Project
             Inventory();
             break;
           case 4:
-            TakeItem();
+            TakeItem("Key");
             break;
           case 5:
-            UseItem();
+            UseItem("Key");
             break;
           case 6:
             Quit();
@@ -55,39 +58,39 @@ namespace CastleGrimtol.Project
     }
     public void StartGame()
     {
-      throw new System.NotImplementedException();
+
     }
     public void Go(string direction)
     {
-      throw new System.NotImplementedException();
+
     }
     public void Look()
     {
-      throw new System.NotImplementedException();
+
     }
     public void Inventory()
     {
-      throw new System.NotImplementedException();
+
     }
     public void TakeItem(string itemName)
     {
-      throw new System.NotImplementedException();
+
     }
     public void UseItem(string itemName)
     {
-      throw new System.NotImplementedException();
+
     }
     public void Quit()
     {
-      throw new System.NotImplementedException();
+
     }
     public void Help()
     {
-      throw new System.NotImplementedException();
+
     }
     public void Reset()
     {
-      throw new System.NotImplementedException();
+
     }
   }
 }
