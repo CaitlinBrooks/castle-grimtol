@@ -59,9 +59,9 @@ namespace CastleGrimtol.Project
       Room Entry = new Room("You are in the entry room.");
       Room Aresenal = new Room("You are in the aresenal room. Game over.");
       Room Undercroft = new Room("You are in the Undercroft.");
-      Item Key = new Item("");
-      Room Casemate = new Room("");
-      Room PlaceofArms = new Room("");
+      Item Key = new Item("This is a key.");
+      Room Casemate = new Room("You are in the Casemate.");
+      Room PlaceofArms = new Room("You are in the Place of Arms.");
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("East", Undercroft);
@@ -90,7 +90,7 @@ namespace CastleGrimtol.Project
     {
       if (CurrentRoom.Exits.ContainsKey(direction))
       {
-        // CurrentRoom = CurrentRoom.Exits[direction];
+        CurrentRoom.Exits.ContainsKey(direction);
         Look();
         return;
       }
