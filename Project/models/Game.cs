@@ -56,9 +56,9 @@ namespace CastleGrimtol.Project
     }
     public void Setup()
     {
-      Room Entry = new Room("");
-      Room Aresenal = new Room("");
-      Room Undercroft = new Room("");
+      Room Entry = new Room("You are in the entry room.");
+      Room Aresenal = new Room("You are in the aresenal room. Game over.");
+      Room Undercroft = new Room("You are in the Undercroft.");
       Item Key = new Item("");
       Room Casemate = new Room("");
       Room PlaceofArms = new Room("");
@@ -76,12 +76,24 @@ namespace CastleGrimtol.Project
     public void StartGame()
     {
       Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol. You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
+      Console.WriteLine(@"
+ [][][] /""\ [][][]
+  |::| /____\ |::|
+  |[]|_|::::|_|[]|
+  |::::::__::::::|
+  |:::::/||\:::::|
+  |:#:::||||::#::|");
       GetUserInput();
 
     }
     public void Go(string direction)
     {
-
+      if (CurrentRoom.Exits.ContainsKey(direction))
+      {
+        CurrentRoom = CurrentRoom.Exits[direction];
+        Look();
+        return;
+      }
     }
     public void Look()
     {
@@ -119,7 +131,8 @@ namespace CastleGrimtol.Project
 
     public void Reset()
     {
-      throw new NotImplementedException();
+      Console.Clear();
+      playing = true;
     }
 
     public void Quit()
