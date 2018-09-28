@@ -90,7 +90,7 @@ namespace CastleGrimtol.Project
     {
       if (CurrentRoom.Exits.ContainsKey(direction))
       {
-        CurrentRoom = CurrentRoom.Exits[direction];
+        // CurrentRoom = CurrentRoom.Exits[direction];
         Look();
         return;
       }
@@ -101,7 +101,8 @@ namespace CastleGrimtol.Project
     }
     public void Look()
     {
-      Console.WriteLine($"(You are currently in {CurrentRoom.Name} {CurrentRoom.Description}));
+      Console.WriteLine($"(You are currently in {CurrentRoom.Name}");
+      Console.WriteLine($"{CurrentRoom.Description}");
     }
     public void Inventory()
     {
