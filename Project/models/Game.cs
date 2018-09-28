@@ -135,7 +135,7 @@ namespace CastleGrimtol.Project
       Look              Take Item
       Use Item          Reset      
       Quit              Help
-   .__________________________.
+    .__________________________.
     | .___________________. |==|
     | | ................. | |  |
     | | :::::What Do::::: | |  |
