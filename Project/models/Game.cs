@@ -94,10 +94,14 @@ namespace CastleGrimtol.Project
         Look();
         return;
       }
+      else
+      {
+        Console.WriteLine("Nothing to see here except a stone wall.");
+      }
     }
     public void Look()
     {
-
+      Console.WriteLine($"(You are currently in {CurrentRoom.Name} {CurrentRoom.Description}));
     }
     public void Inventory()
     {
@@ -132,7 +136,8 @@ namespace CastleGrimtol.Project
     public void Reset()
     {
       Console.Clear();
-      playing = true;
+      Setup();
+      // playing = true;
     }
 
     public void Quit()
