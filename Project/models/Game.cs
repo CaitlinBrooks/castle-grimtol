@@ -59,7 +59,7 @@ namespace CastleGrimtol.Project
       Room Entry = new Room("You are in the entry room.");
       Room Aresenal = new Room("You are in the aresenal room. Game over.");
       Room Undercroft = new Room("You are in the Undercroft.");
-      Item Key = new Item("This is a key.");
+      Item Key = new Item("Golden Key", "This is a key.");
       Room Casemate = new Room("You are in the Casemate.");
       Room PlaceofArms = new Room("You are in the Place of Arms.");
 
