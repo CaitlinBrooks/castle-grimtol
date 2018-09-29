@@ -58,11 +58,11 @@ namespace CastleGrimtol.Project
     {
       playing = true;
       Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
-      Room Aresenal = new Room("Aresenal", "You are in the aresenal room. Game over."); //need to fire off quit
-      Room Undercroft = new Room("Undercroft", "You are in the Undercroft.");
-      Item Key = new Item("Golden Key", "This is a key.");
-      Room Casemate = new Room("Casemate", "You are in the Casemate.");
-      Room PlaceofArms = new Room("PlaceofArms", "You are in the Place of Arms. You made it! You won!"); //Need to fire off quit.
+      Room Aresenal = new Room("Aresenal", "You sneak into the room and are heard by a guard cleaning the weapons from the battle. The guard hears you and quickly turns, ending your time in Castle Grimtol. Game over, young warrior.", true);
+      Room Undercroft = new Room("Undercroft", "Cautiously you make your way to the undercroft, a large room with many options to explore. Make sure you step lightly, guards are likely nearby!");
+      Item Key = new Item("Golden Key", "This is a golden key. Hang onto it, you never know when it will come in handy.");
+      Room Casemate = new Room("Casemate", "You are now in the gloomy casemate underneath the castle. Soldiers were able to barricade themselves inside the casemates for weeks, perhaps there is something they've left behind to help in the castle later on. There seems to be a door at the end of the corridoor, yet your hopes are dashed when you notice the lock.");
+      Room PlaceofArms = new Room("PlaceofArms", "A new room! This is where troops most likely assemble before battles like the one you've known in the past. There is a stairwell in the corner that allows you access to the hallways of the castle. You made it! You won access to Grimtol!", true);
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("east", Undercroft);
@@ -104,9 +104,11 @@ namespace CastleGrimtol.Project
       if (CurrentRoom.Exits.ContainsKey(direction))
       {
         CurrentRoom = CurrentRoom.Exits[direction];
-        Console.WriteLine($"You are currently in {CurrentRoom.Name}");
+        if (CurrentRoom.Gameover)
+        {
+          playing = false;
+        }
         Console.WriteLine($"{CurrentRoom.Description}");
-        Console.ReadLine();
         return;
       }
       else
