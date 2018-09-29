@@ -57,11 +57,11 @@ namespace CastleGrimtol.Project
     public void Setup()
     {
       Room Entry = new Room("Entry", "You are in the entry room.");
-      Room Aresenal = new Room("You are in the aresenal room. Game over.");
-      Room Undercroft = new Room("You are in the Undercroft.");
+      Room Aresenal = new Room("Aresenal", "You are in the aresenal room. Game over.");
+      Room Undercroft = new Room("Undercroft", "You are in the Undercroft.");
       Item Key = new Item("Golden Key", "This is a key.");
-      Room Casemate = new Room("You are in the Casemate.");
-      Room PlaceofArms = new Room("You are in the Place of Arms.");
+      Room Casemate = new Room("Casemate", "You are in the Casemate.");
+      Room PlaceofArms = new Room("PlaceofArms", "You are in the Place of Arms.");
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("East", Undercroft);
