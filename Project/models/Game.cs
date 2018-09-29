@@ -62,7 +62,7 @@ namespace CastleGrimtol.Project
       Room Undercroft = new Room("Undercroft", "Cautiously you make your way to the undercroft, a large room with many options to explore. Make sure you step lightly, guards are likely nearby!");
       Item Key = new Item("Golden Key", "This is a golden key. Hang onto it, you never know when it will come in handy.");
       Room Casemate = new Room("Casemate", "You are now in the gloomy casemate underneath the castle. Soldiers were able to barricade themselves inside the casemates for weeks, perhaps there is something they've left behind to help in the castle later on. There seems to be a door at the end of the corridoor, yet your hopes are dashed when you notice the lock.");
-      Room PlaceofArms = new Room("PlaceofArms", "A new room! This is where troops most likely assemble before battles like the one you've known in the past. There is a stairwell in the corner that allows you access to the hallways of the castle. You made it! You won access to Grimtol!", true);
+      Room PlaceofArms = new Room("PlaceofArms", "A new room! This is where troops most likely assemble before battles like the one you've known in the past. There is a stairwell in the corner that allows you access to the hallways of the castle. You made it! You won access to Grimtol!", true, true);
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("east", Undercroft);
@@ -115,21 +115,15 @@ namespace CastleGrimtol.Project
       {
         Console.WriteLine("Nothing to see here except a stone wall.");
         Console.WriteLine(@"                    
-        |>>>
-        |
-    _  _|_  _
-   |;|_|;|_|;|
-   \\.    .  /
-    \\:  .  /
-     ||:   |
-     ||:.  |
-     ||:  .|
-     ||:   |
-     ||: , |
-     ||:   |
-     ||: . |
-    _||_   |
-~    ~`---");
+     _________________
+     ||:    :   .  , |
+     ||:.  .   ,  :  |
+     ||:  .  . ,,  : |
+     ||: .  :  ;  :  |
+     ||: ,     ..    |
+     ||:   :  :  .   |
+     ||: .  ,   :  ; |
+     ||_    ..  ..   |");
       }
     }
     public void Look()

@@ -10,7 +10,7 @@ namespace CastleGrimtol.Project
     public bool Gameover { get; set; }
     public Dictionary<string, Room> Exits { get; set; }
 
-    public Room(string name, string description, bool gameover = false)
+    public Room(string name, string description, bool gameover = false, bool islocked = false)
     {
       Name = name;
       Description = description;
