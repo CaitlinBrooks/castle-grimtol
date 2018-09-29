@@ -58,11 +58,11 @@ namespace CastleGrimtol.Project
     {
       playing = true;
       Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
-      Room Aresenal = new Room("Aresenal", "You are in the aresenal room. Game over.");
+      Room Aresenal = new Room("Aresenal", "You are in the aresenal room. Game over."); //need to fire off quit
       Room Undercroft = new Room("Undercroft", "You are in the Undercroft.");
       Item Key = new Item("Golden Key", "This is a key.");
       Room Casemate = new Room("Casemate", "You are in the Casemate.");
-      Room PlaceofArms = new Room("PlaceofArms", "You are in the Place of Arms.");
+      Room PlaceofArms = new Room("PlaceofArms", "You are in the Place of Arms. You made it! You won!"); //Need to fire off quit.
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("east", Undercroft);
@@ -105,6 +105,7 @@ namespace CastleGrimtol.Project
       {
         CurrentRoom = CurrentRoom.Exits[direction];
         Console.WriteLine($"You are currently in {CurrentRoom.Name}");
+        Console.WriteLine($"{CurrentRoom.Description}");
         Console.ReadLine();
         return;
       }
