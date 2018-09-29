@@ -11,7 +11,7 @@ namespace CastleGrimtol.Project
 
     public void GetUserInput()
     {
-      Console.WriteLine("");
+      Console.WriteLine("What do you want to do?");
       string UserInput = Console.ReadLine();
       switch (UserInput.ToLower())
       {
@@ -56,7 +56,7 @@ namespace CastleGrimtol.Project
     }
     public void Setup()
     {
-      Room Entry = new Room("Entry", "You are in the entry room.");
+      Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right. You are in the entry room.");
       Room Aresenal = new Room("Aresenal", "You are in the aresenal room. Game over.");
       Room Undercroft = new Room("Undercroft", "You are in the Undercroft.");
       Item Key = new Item("Golden Key", "This is a key.");
@@ -68,14 +68,19 @@ namespace CastleGrimtol.Project
       Entry.Exits.Add("South", Aresenal);
       // Aresenal is game over, no win.
       Undercroft.Items.Add(Key);
-      Entry.Exits.Add("West", Entry);
-      Entry.Exits.Add("East", Casemate);
-      Entry.Exits.Add("West", Undercroft);
-      Entry.Exits.Add("East", PlaceofArms); // YOU WIN!
+      Undercroft.Exits.Add("West", Entry);
+      Undercroft.Exits.Add("East", Casemate);
+      Casemate.Exits.Add("West", Undercroft);
+      Casemate.Exits.Add("East", PlaceofArms); // YOU WIN!
+
+      CurrentRoom = Entry;
+
     }
     public void StartGame()
     {
-      Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol. You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right. What direction do you want to go?");
+      Setup();
+      Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol.");
+      Console.WriteLine("What is your name, so that we can remember your quest for years to come?");
       Console.WriteLine(@"
  [][][] /""\ [][][]
   |::| /____\ |::|
@@ -83,14 +88,17 @@ namespace CastleGrimtol.Project
   |::::::__::::::|
   |:::::/||\:::::|
   |:#:::||||::#::|");
+      var name = Console.ReadLine();
+      // input = input.ToLower();
+      CurrentPlayer = new Player(name);
       GetUserInput();
-
     }
     public void Go(string direction)
     {
+      System.Console.WriteLine(CurrentRoom.Name);
       if (CurrentRoom.Exits.ContainsKey(direction))
       {
-        CurrentRoom.Exits.ContainsKey(direction);
+        CurrentRoom = CurrentRoom.Exits[direction];
         Look();
         return;
       }
