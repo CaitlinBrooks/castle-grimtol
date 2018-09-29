@@ -115,15 +115,15 @@ namespace CastleGrimtol.Project
       {
         Console.WriteLine("Nothing to see here except a stone wall.");
         Console.WriteLine(@"                    
-     _________________
-     ||:    :   .  , |
-     ||:.  .   ,  :  |
-     ||:  .  . ,,  : |
-     ||: .  :  ;  :  |
-     ||: ,     ..    |
-     ||:   :  :  .   |
-     ||: .  ,   :  ; |
-     ||_    ..  ..   |");
+  _________________
+  ||:    :   .  , |
+  ||:.  .   ,  :  |
+  ||:  .  . ,,  : |
+  ||: .  :  ;  :  |
+  ||: ,     ..    |
+  ||:   :  :  .   |
+  ||: .  ,   :  ; |
+  ||_    ..  ..   |");
       }
     }
     public void Look()
