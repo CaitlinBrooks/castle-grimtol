@@ -11,7 +11,7 @@ namespace CastleGrimtol.Project
 
     public void GetUserInput()
     {
-      Console.WriteLine("What do you want to do?");
+      Console.WriteLine($"What do you want to do, {CurrentPlayer.PlayerName} ?");
       string UserInput = Console.ReadLine();
       switch (UserInput.ToLower())
       {
