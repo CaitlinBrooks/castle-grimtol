@@ -5,10 +5,10 @@ namespace CastleGrimtol.Project
 {
   public class Game : IGame
   {
+
     public Room CurrentRoom { get; set; }
     public Player CurrentPlayer { get; set; }
     public bool playing { get; private set; }
-
     public void GetUserInput()
     {
       Console.WriteLine($"What do you want to do, {CurrentPlayer.PlayerName} ?");
@@ -56,7 +56,8 @@ namespace CastleGrimtol.Project
     }
     public void Setup()
     {
-      Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right. You are in the entry room.");
+      playing = true;
+      Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
       Room Aresenal = new Room("Aresenal", "You are in the aresenal room. Game over.");
       Room Undercroft = new Room("Undercroft", "You are in the Undercroft.");
       Item Key = new Item("Golden Key", "This is a key.");
@@ -64,14 +65,14 @@ namespace CastleGrimtol.Project
       Room PlaceofArms = new Room("PlaceofArms", "You are in the Place of Arms.");
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
-      Entry.Exits.Add("East", Undercroft);
-      Entry.Exits.Add("South", Aresenal);
+      Entry.Exits.Add("east", Undercroft);
+      Entry.Exits.Add("south", Aresenal);
       // Aresenal is game over, no win.
       Undercroft.Items.Add(Key);
-      Undercroft.Exits.Add("West", Entry);
-      Undercroft.Exits.Add("East", Casemate);
-      Casemate.Exits.Add("West", Undercroft);
-      Casemate.Exits.Add("East", PlaceofArms); // YOU WIN!
+      Undercroft.Exits.Add("west", Entry);
+      Undercroft.Exits.Add("east", Casemate);
+      Casemate.Exits.Add("west", Undercroft);
+      Casemate.Exits.Add("east", PlaceofArms); // YOU WIN!
 
       CurrentRoom = Entry;
 
@@ -79,27 +80,32 @@ namespace CastleGrimtol.Project
     public void StartGame()
     {
       Setup();
-      Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol.");
-      Console.WriteLine("What is your name, so that we can remember your quest for years to come?");
-      Console.WriteLine(@"
+      {
+        Console.WriteLine("Welcome, young warrior. You have entered the tunnel of Castle Grimtol.");
+        Console.WriteLine("What is your name, so that we can remember your quest for years to come?");
+        Console.WriteLine(@"
  [][][] /""\ [][][]
   |::| /____\ |::|
   |[]|_|::::|_|[]|
   |::::::__::::::|
   |:::::/||\:::::|
   |:#:::||||::#::|");
-      var name = Console.ReadLine();
-      // input = input.ToLower();
-      CurrentPlayer = new Player(name);
-      GetUserInput();
+        var name = Console.ReadLine();
+        // input = input.ToLower();
+        CurrentPlayer = new Player(name);
+        while (playing)
+        {
+          GetUserInput();
+        }
+      }
     }
     public void Go(string direction)
     {
-      System.Console.WriteLine(CurrentRoom.Name);
       if (CurrentRoom.Exits.ContainsKey(direction))
       {
         CurrentRoom = CurrentRoom.Exits[direction];
-        Look();
+        Console.WriteLine($"You are currently in {CurrentRoom.Name}");
+        Console.ReadLine();
         return;
       }
       else
@@ -109,7 +115,7 @@ namespace CastleGrimtol.Project
     }
     public void Look()
     {
-      Console.WriteLine($"(You are currently in {CurrentRoom.Name}");
+      Console.WriteLine($"You are currently in {CurrentRoom.Name}");
       Console.WriteLine($"{CurrentRoom.Description}");
     }
     public void Inventory()
@@ -145,7 +151,7 @@ namespace CastleGrimtol.Project
     public void Reset()
     {
       Console.Clear();
-      Setup();
+      StartGame();
       // playing = true;
     }
 
