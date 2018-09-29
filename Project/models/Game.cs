@@ -137,9 +137,9 @@ namespace CastleGrimtol.Project
       {
         Console.WriteLine($"You currently have one {CurrentPlayer.Inventory[i].Name} in your inventory.");
         Console.WriteLine(@"
-  8 8          ,o.
- d8o8azzzzzzzzd   b
-               `o'   ");
+   8 8          ,o.
+  d8o8azzzzzzzzd   b
+                `o'   ");
       }
       string choice = Console.ReadLine();
       GetUserInput();
