@@ -66,7 +66,7 @@ ____ ____ _  _ ____    ____ _  _ ____ ____
       Item Key = new Item("Golden Key", "This is a golden key. Hang onto it, you never know when it will come in handy.");
       Room Casemate = new Room("Casemate", "You are now in the gloomy cavern directly underneath the castle. Soldiers barricaded themselves inside casemates for weeks, perhaps there is something they've left behind to help you later on. There seems to be a door at the far end of the corridoor, yet your hopes are dashed when you notice the lock.", false, true);
       Item LockedExit = new Item("Locked Exit", "This door is locked, you're almost there young warrior. Try again using all that you have at your disposal...");
-      Room PlaceofArms = new Room("PlaceofArms", @"A new room! There is a stairwell in the corner that allows you direct free access to the hallways of the castle. You made it inside! May you bring Dristol down once and for all.
+      Room PlaceofArms = new Room("PlaceofArms", @"A new room! There is a stairwell in the corner that allows you direct free access to the hallways of the castle. You made it inside without being seen! May you bring Dristol down once and for all.
 _   _ ____ _  _    _ _ _ _ _  _ 
  \_/  |  | |  |    | | | | |\ | 
   |   |__| |__|    |_|_| | | \| ", true, false);
@@ -118,7 +118,6 @@ _   _ ____ _  _    _ _ _ _ _  _
         if (CurrentRoom.Gameover)
         {
           playing = false;
-          System.Console.WriteLine("Game ended?");
         }
         Console.WriteLine($"{CurrentRoom.Description}");
         return;
@@ -183,7 +182,6 @@ _   _ ____ _  _    _ _ _ _ _  _
     {
       Console.Clear();
       StartGame();
-      // playing = true;
     }
 
     public void Quit()
