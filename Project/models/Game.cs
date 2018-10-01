@@ -109,7 +109,7 @@ _   _ ____ _  _    _ _ _ _ _  _
     }
     public void Go(string direction)
     {
-      if (CurrentRoom.Exits.ContainsKey(direction))
+      if (CurrentRoom.Exits.ContainsKey(direction) && CurrentRoom.Items.Count != 0)
       {
         CurrentRoom = CurrentRoom.Exits[direction];
         if (CurrentRoom.Gameover)
