@@ -65,6 +65,7 @@ ____ ____ _  _ ____    ____ _  _ ____ ____
       Room Undercroft = new Room("Undercroft", "Cautiously you make your way to the undercroft, a large room with many options to explore. Make sure you step lightly, guards are likely nearby!");
       Item Key = new Item("Golden Key", "This is a golden key. Hang onto it, you never know when it will come in handy.");
       Room Casemate = new Room("Casemate", "You are now in the gloomy cavern directly underneath the castle. Soldiers barricaded themselves inside casemates for weeks, perhaps there is something they've left behind to help you later on. There seems to be a door at the far end of the corridoor, yet your hopes are dashed when you notice the lock.", false, true);
+      Item LockedExit = new Item("Locked Exit", "This door is locked, you're almost there young warrior. Try again using all that you have at your disposal...");
       Room PlaceofArms = new Room("PlaceofArms", @"A new room! There is a stairwell in the corner that allows you direct free access to the hallways of the castle. You made it inside! May you bring Dristol down once and for all.
 _   _ ____ _  _    _ _ _ _ _  _ 
  \_/  |  | |  |    | | | | |\ | 
@@ -74,10 +75,11 @@ _   _ ____ _  _    _ _ _ _ _  _
       Entry.Exits.Add("east", Undercroft);
       Entry.Exits.Add("south", Aresenal);
       // Aresenal is game over, no win.
-      Undercroft.Items.Add(Key);
+      Undercroft.Items.Add(Key); // needed to unlocked second to last room to gain access to final room.
       Undercroft.Exits.Add("west", Entry);
       Undercroft.Exits.Add("east", Casemate);
       Casemate.Exits.Add("west", Undercroft);
+      Casemate.Items.Add(LockedExit); // needs the key to unlock
       Casemate.Exits.Add("east", PlaceofArms); // YOU WIN!
 
       CurrentRoom = Entry;
@@ -109,7 +111,8 @@ _   _ ____ _  _    _ _ _ _ _  _
     }
     public void Go(string direction)
     {
-      if (CurrentRoom.Exits.ContainsKey(direction) && CurrentRoom.Items.Count != 0)
+      if (CurrentRoom.Exits.ContainsKey(direction))
+      //  && CurrentRoom.IsLocked = false)
       {
         CurrentRoom = CurrentRoom.Exits[direction];
         if (CurrentRoom.Gameover)
@@ -131,7 +134,7 @@ _   _ ____ _  _    _ _ _ _ _  _
   ||: ,     ..    |
   ||:   :  :  .   |
   ||: .  ,   :  ; |
-  ||_    ..  ..   |");
+  || .   ..  ..   |");
       }
     }
     public void Look()
@@ -161,7 +164,9 @@ _   _ ____ _  _    _ _ _ _ _  _
         {
           CurrentRoom.Items.Remove(item);
           CurrentPlayer.Inventory.Add(item);
+          System.Console.WriteLine("You found a golden key. It is safely stored in your sachel for later on.");
         }
+        return;
       }
     }
     public void UseItem(string itemName)

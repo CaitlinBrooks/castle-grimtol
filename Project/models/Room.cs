@@ -9,14 +9,13 @@ namespace CastleGrimtol.Project
     public List<Item> Items { get; set; }
     public bool Gameover { get; set; }
     public Dictionary<string, Room> Exits { get; set; }
-
-    public Room(string name, string description, bool gameover = false, bool islocked = false)
+    public bool IsLocked { get; set; }
+    public Room(string name, string description, bool gameover = false, bool? IsLocked = false)
     {
       Name = name;
       Description = description;
       Exits = new Dictionary<string, Room>();
       Items = new List<Item>();
-      Gameover = gameover;
     }
   }
 }
