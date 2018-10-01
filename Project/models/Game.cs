@@ -57,15 +57,15 @@ namespace CastleGrimtol.Project
     public void Setup()
     {
       playing = true;
-      Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
+      Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door and the handle of what looks like another door.");
       Room Aresenal = new Room("Aresenal", @"You sneak into the room and are heard by a guard cleaning the weapons from the battle. The guard hears you and swiftly swings his sword, ending your time in Castle Grimtol.
 ____ ____ _  _ ____    ____ _  _ ____ ____ 
 | __ |__| |\/| |___    |  | |  | |___ |__/ 
 |__] |  | |  | |___    |__|  \/  |___ |  \ ", true);
       Room Undercroft = new Room("Undercroft", "Cautiously you make your way to the undercroft, a large room with many options to explore. Make sure you step lightly, guards are likely nearby!");
       Item Key = new Item("Golden Key", "This is a golden key. Hang onto it, you never know when it will come in handy.");
-      Room Casemate = new Room("Casemate", "You are now in the gloomy cavern underneath the castle. Soldiers were able to barricade themselves inside the casemates for weeks, perhaps there is something they've left behind to help you later on. There seems to be a door at the end of the corridoor, yet your hopes are dashed when you notice the lock.", false, true);
-      Room PlaceofArms = new Room("PlaceofArms", @"A new room! This is where troops most likely assemble before battles like the one you've known in the past. There is a stairwell in the corner that allows you access to the hallways of the castle. You made it inside Castle Grimtol!
+      Room Casemate = new Room("Casemate", "You are now in the gloomy cavern directly underneath the castle. Soldiers barricaded themselves inside casemates for weeks, perhaps there is something they've left behind to help you later on. There seems to be a door at the far end of the corridoor, yet your hopes are dashed when you notice the lock.", false, true);
+      Room PlaceofArms = new Room("PlaceofArms", @"A new room! There is a stairwell in the corner that allows you direct free access to the hallways of the castle. You made it inside! May you bring Dristol down once and for all.
 _   _ ____ _  _    _ _ _ _ _  _ 
  \_/  |  | |  |    | | | | |\ | 
   |   |__| |__|    |_|_| | | \| ", true);
@@ -87,8 +87,8 @@ _   _ ____ _  _    _ _ _ _ _  _
     {
       Setup();
       {
-        Console.WriteLine("Welcome, young warrior. You have entered the underground tunnel of Castle Grimtol. Let's see if you can successfully make it upstairs alive.");
-        Console.WriteLine("What is your name, so that we can remember your quest for years to come?");
+        Console.WriteLine("Welcome, young warrior. Let's see if you have what it takes to becomes a legend.");
+        Console.WriteLine("What is your name, so that we can remember your quest?");
         Console.WriteLine(@"
  [][][] /""\ [][][]
   |::| /___\ |::|
@@ -99,6 +99,8 @@ _   _ ____ _  _    _ _ _ _ _  _
         var name = Console.ReadLine();
         // input = input.ToLower();
         CurrentPlayer = new Player(name);
+        Console.WriteLine("Roughed up after fighting to get gain access, you are determined as ever to kill Dristol Grim once and for all.");
+        Console.WriteLine("In this dark cobblestone room, with the light between the stones, you see a door ahead and the handle of what could be another entrance.");
         while (playing)
         {
           GetUserInput();
@@ -194,23 +196,24 @@ ____ ____ _  _ ____    ____ _  _ ____ ____
       Look              Take Item
       Use Item          Reset      
       Quit              Help
-    .__________________________.
-    | .___________________. |==|
-    | | ................. | |  |
-    | | :::::What Do::::: | |  |
-    | | ::::::I Do?:::::: | |  |
-    | | ::::::::::::::::: | |  |
-    | | ::::::::::::::::: | |  |
-    | | ::::::::::::::::: | |  |
-    | | ::::::::::::::::: | | ,|
-    | !___________________! |(c|
-    !_______________________!__!
-   /                            \
-  /  [][][][][][][][][][][][][]  \
- /  [][][][][][][][][][][][][][]  \
-(  [][][][][____________][][][][]  )
- \ ------------------------------ /
-  \______________________________/
+         ______________
+        /             /|
+       /             / |
+      /____________ /  |
+     | ___________ |   |
+     ||           ||   |
+     ||   neat!   ||   |
+     ||           ||   |
+     ||___________||   |
+     |   _______   |  /
+    /|  (_______)  | /
+   ( |_____________|/
+    \
+.=======================.
+| ::::::::::::::::  ::: |
+| ::::::::::::::[]  ::: |
+|   -----------     ::: |
+`-----------------------'
                          ");
     }
   }
