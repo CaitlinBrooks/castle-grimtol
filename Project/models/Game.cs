@@ -164,7 +164,7 @@ _   _ ____ _  _    _ _ _ _ _  _
         {
           CurrentRoom.Items.Remove(item);
           CurrentPlayer.Inventory.Add(item);
-          System.Console.WriteLine("You found a golden key. It is safely stored in your sachel for later on.");
+          System.Console.WriteLine($"You found a golden key. It is safely stored in your sachel for later on.");
         }
         return;
       }
@@ -175,6 +175,7 @@ _   _ ____ _  _    _ _ _ _ _  _
       if (item != null)
       {
         CurrentPlayer.Inventory.Remove(item);
+        CurrentRoom.IsLocked = false;
       }
     }
 
