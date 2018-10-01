@@ -174,7 +174,10 @@ namespace CastleGrimtol.Project
 
     public void Quit()
     {
-      Console.WriteLine("You lost the game...");
+      Console.WriteLine(@"
+____ ____ _  _ ____    ____ _  _ ____ ____ 
+| __ |__| |\/| |___    |  | |  | |___ |__/ 
+|__] |  | |  | |___    |__|  \/  |___ |  \ ");
       playing = false;
     }
 
