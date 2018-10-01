@@ -69,7 +69,7 @@ ____ ____ _  _ ____    ____ _  _ ____ ____
       Room PlaceofArms = new Room("PlaceofArms", @"A new room! There is a stairwell in the corner that allows you direct free access to the hallways of the castle. You made it inside! May you bring Dristol down once and for all.
 _   _ ____ _  _    _ _ _ _ _  _ 
  \_/  |  | |  |    | | | | |\ | 
-  |   |__| |__|    |_|_| | | \| ", true);
+  |   |__| |__|    |_|_| | | \| ", true, false);
 
       //Entry -> Undercroft -> Casemate -> Place of Arms
       Entry.Exits.Add("east", Undercroft);
@@ -118,6 +118,7 @@ _   _ ____ _  _    _ _ _ _ _  _
         if (CurrentRoom.Gameover)
         {
           playing = false;
+          System.Console.WriteLine("Game ended?");
         }
         Console.WriteLine($"{CurrentRoom.Description}");
         return;
