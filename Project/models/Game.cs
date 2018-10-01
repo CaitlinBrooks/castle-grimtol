@@ -144,16 +144,19 @@ _   _ ____ _  _    _ _ _ _ _  _
     }
     public void Inventory()
     {
-      for (int i = 0; i < CurrentPlayer.Inventory.Count; i++) //IGame.CurrentPlayer?
+      foreach (var item in CurrentPlayer.Inventory)
       {
-        Console.WriteLine($"You currently have one {CurrentPlayer.Inventory[i].Name} in your inventory.");
-        Console.WriteLine(@"
+        Console.WriteLine($"You currently have a {item.Name} in your inventory:");
+        // } (int i = 0; i < CurrentPlayer.Inventory.Count; i++) //IGame.CurrentPlayer?
+        {
+          Console.WriteLine(@"
    8 8          ,o.
   d8o8azzzzzzzzd   b
                 `o'   ");
+        }
+        string choice = Console.ReadLine();
+        GetUserInput();
       }
-      string choice = Console.ReadLine();
-      GetUserInput();
     }
     public void TakeItem(string itemName)
     {
