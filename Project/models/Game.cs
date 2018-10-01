@@ -99,7 +99,7 @@ _   _ ____ _  _    _ _ _ _ _  _
         var name = Console.ReadLine();
         // input = input.ToLower();
         CurrentPlayer = new Player(name);
-        Console.WriteLine("Roughed up after fighting to get gain access, you are determined as ever to kill Dristol Grim once and for all.");
+        Console.WriteLine("Roughed up after fighting to gain access, you are determined as ever to kill Dristol Grim once and for all.");
         Console.WriteLine("In this dark cobblestone room, with the light between the stones, you see a door ahead and the handle of what could be another entrance.");
         while (playing)
         {
