@@ -58,7 +58,10 @@ namespace CastleGrimtol.Project
     {
       playing = true;
       Room Entry = new Room("Entry", "You find yourself in a dark cobblestone room, and through the light you see one door ahead of you and the knob of one door to your right.");
-      Room Aresenal = new Room("Aresenal", "You sneak into the room and are heard by a guard cleaning the weapons from the battle. The guard hears you and quickly turns, ending your time in Castle Grimtol. Game over, young warrior.", true);
+      Room Aresenal = new Room("Aresenal", @"You sneak into the room and are heard by a guard cleaning the weapons from the battle. The guard hears you and swiftly swings his sword, ending your time in Castle Grimtol.
+____ ____ _  _ ____    ____ _  _ ____ ____ 
+| __ |__| |\/| |___    |  | |  | |___ |__/ 
+|__] |  | |  | |___    |__|  \/  |___ |  \ ", true);
       Room Undercroft = new Room("Undercroft", "Cautiously you make your way to the undercroft, a large room with many options to explore. Make sure you step lightly, guards are likely nearby!");
       Item Key = new Item("Golden Key", "This is a golden key. Hang onto it, you never know when it will come in handy.");
       Room Casemate = new Room("Casemate", "You are now in the gloomy cavern underneath the castle. Soldiers were able to barricade themselves inside the casemates for weeks, perhaps there is something they've left behind to help you later on. There seems to be a door at the end of the corridoor, yet your hopes are dashed when you notice the lock.", false, true);
@@ -85,11 +88,11 @@ namespace CastleGrimtol.Project
         Console.WriteLine("What is your name, so that we can remember your quest for years to come?");
         Console.WriteLine(@"
  [][][] /""\ [][][]
-  |::| /____\ |::|
-  |[]|_|::::|_|[]|
-  |::::::__::::::|
-  |:::::/||\:::::|
-  |:#:::||||::#::|");
+  |::| /___\ |::|
+  |[]|_|:::|_|[]|
+  |::::::__:::::|
+  |:::::/||\::::|
+  |:#:::||||::#:|");
         var name = Console.ReadLine();
         // input = input.ToLower();
         CurrentPlayer = new Player(name);
