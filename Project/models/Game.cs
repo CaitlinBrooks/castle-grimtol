@@ -121,6 +121,21 @@ _   _ ____ _  _    _ _ _ _ _  _
         Console.WriteLine($"{CurrentRoom.Description}");
         return;
       }
+      else if (CurrentRoom.IsLocked && direction == "west")
+      {
+        CurrentRoom = CurrentRoom.Exits[direction];
+        if (CurrentRoom.Gameover)
+        {
+          playing = false;
+        }
+        Console.WriteLine($"{CurrentRoom.Description}");
+        return;
+      }
+      else if (CurrentRoom.IsLocked && direction == "east")
+      {
+        System.Console.WriteLine("There is a door here, but it is locked."
+        );
+      }
       else
       {
         Console.WriteLine("Nothing to see here except a stone wall.");
@@ -148,6 +163,11 @@ _   _ ____ _  _    _ _ _ _ _  _
     }
     public void Inventory()
     {
+      if (CurrentPlayer.Inventory.Count < 1)
+      {
+        System.Console.WriteLine("No items in your sachel."
+        );
+      }
       foreach (var item in CurrentPlayer.Inventory)
       {
         Console.WriteLine($"You currently have a {item.Name} in your inventory:");
@@ -166,6 +186,7 @@ _   _ ____ _  _    _ _ _ _ _  _
     {
 
       Item item = CurrentRoom.Items.Find(i => i.Name == itemName);
+      System.Console.WriteLine(item != null);
       if (item != null)
       {
         {
@@ -178,11 +199,12 @@ _   _ ____ _  _    _ _ _ _ _  _
     }
     public void UseItem(string itemName)
     {
-      Item item = CurrentRoom.Items.Find(i => i.Name == itemName);
+      Item item = CurrentPlayer.Inventory.Find(i => i.Name == itemName);
       if (item != null)
       {
         CurrentPlayer.Inventory.Remove(item); // look to refactor
         CurrentRoom.IsLocked = false;
+        System.Console.WriteLine("Door Unlocked!");
       }
     }
 
