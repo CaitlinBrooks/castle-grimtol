@@ -35,10 +35,10 @@ namespace CastleGrimtol.Project
           Inventory();
           break;
         case "take item":
-          TakeItem("key");
+          TakeItem("Golden Key");
           break;
         case "use item":
-          UseItem("key");
+          UseItem("Golden Key");
           break;
         case "quit":
           Quit();
@@ -111,8 +111,7 @@ _   _ ____ _  _    _ _ _ _ _  _
     }
     public void Go(string direction)
     {
-      if (CurrentRoom.Exits.ContainsKey(direction))
-      //  && CurrentRoom.IsLocked = false)
+      if (CurrentRoom.Exits.ContainsKey(direction) && CurrentRoom.IsLocked == false)
       {
         CurrentRoom = CurrentRoom.Exits[direction];
         if (CurrentRoom.Gameover)
@@ -141,6 +140,11 @@ _   _ ____ _  _    _ _ _ _ _  _
     {
       Console.WriteLine($"You are currently in {CurrentRoom.Name}");
       Console.WriteLine($"{CurrentRoom.Description}");
+      System.Console.WriteLine("Items:");
+      foreach (var item in CurrentRoom.Items)
+      {
+        System.Console.WriteLine($"{item.Name}");
+      }
     }
     public void Inventory()
     {
@@ -177,7 +181,7 @@ _   _ ____ _  _    _ _ _ _ _  _
       Item item = CurrentRoom.Items.Find(i => i.Name == itemName);
       if (item != null)
       {
-        CurrentPlayer.Inventory.Remove(item);
+        CurrentPlayer.Inventory.Remove(item); // look to refactor
         CurrentRoom.IsLocked = false;
       }
     }

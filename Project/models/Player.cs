@@ -10,6 +10,7 @@ namespace CastleGrimtol.Project
     public Player(string name)
     {
       PlayerName = name;
+      Inventory = new List<Item>();
     }
   }
 }
