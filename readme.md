@@ -4,11 +4,11 @@
 A simplified console game (throwback to the 1970's!) that will allow users to:</br>
 <ul>
   <li>Move a unique warrior from room to room</br>
-  Gather a description of the room they are in</br>
-  Navigate to a help screen that shows a list of all available commands</br>
-  Take items from room to room</br>
-  Use items from their inventory to gain access to new areas within the game</br>
-  Quit the game or begin again</li></br>
+  <li>Gather a description of the room they are in</br>
+  <li>Navigate to a help screen that shows a list of all available commands</br>
+  <li>Take items from room to room</br>
+  <li>Use items from their inventory to gain access to new areas within the game</br>
+  <li>Quit the game or begin again</li></br>
 
 <strong>Getting Started</strong><br/>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.<br/>
