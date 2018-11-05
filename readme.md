@@ -1,7 +1,14 @@
 # Castle Grimtol Console Game
 
 <strong>About</strong><br/>
-A paragraph describing what the console game does.<br/>
+A simplified console game (throwback to the 1970's!) that will allow users to:</br>
+<ul>
+  <li>Move a unique warrior from room to room</li></br>
+  <li>Gather a description of the room they are in</li></br>
+  <li>Navigate to a help screen that shows a list of all available commands</li></br>
+  <li>Take items from room to room</li></br>
+  <li>Use items from their inventory to gain access to new areas within the game</li></br>
+  <li>Quit the game or begin again</li></br>
 
 <strong>Getting Started</strong><br/>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.<br/>
