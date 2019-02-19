@@ -210,6 +210,7 @@ _   _ ____ _  _    _ _ _ _ _  _
 
     public void Reset()
     {
+
       Console.Clear();
       StartGame();
     }
